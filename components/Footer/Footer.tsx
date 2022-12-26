@@ -59,21 +59,42 @@ const Footer = () => (
         justify-content: space-between;
         padding-top: 20px;
         padding-bottom: 60px;
+
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
       }
       .item {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        margin-bottom: 36px;
+        gap: 8px;
       }
       .social {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 18px;
       }
       .social a {
         display: flex;
         align-items: center;
         gap: 6px;
+      }
+
+      @media screen and (min-width: 600px) {
+        footer {
+          flex-direction: row;
+          align-items: flex-start;
+          text-align: start;
+        }
+        .item {
+          gap: 20px;
+          margin-bottom: 0;
+        }
+        .social {
+          justify-content: flex-start;
+        }
       }
     `}</style>
   </footer>
