@@ -13,7 +13,6 @@ export default function HomePage() {
 
   return (
     <div>
-      <Navbar />
       <h1>Platzi Avo</h1>
       {productList.map(product => (
         <p key={product.id}>{product.name}</p>
