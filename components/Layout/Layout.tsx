@@ -6,10 +6,22 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div className="container">
       <Navbar />
       {children}
       <footer>This is the footer</footer>
+
+      <style jsx>
+        {`
+          .container {
+            background: pink;
+          }
+
+          footer {
+            color: blue;
+          }
+        `}
+      </style>
     </div>
   )
 }
