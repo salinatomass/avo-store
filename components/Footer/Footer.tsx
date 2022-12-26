@@ -57,6 +57,8 @@ const Footer = () => (
       footer {
         display: flex;
         justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 60px;
       }
       .item {
         display: flex;

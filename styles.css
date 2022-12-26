@@ -64,6 +64,7 @@ a {
 .btn.btn-link {
   color: var(--tertiary-color);
   padding: 0;
+  font-size: 18px;
 }
 .btn.btn-link:hover {
   text-decoration: underline;

@@ -41,8 +41,8 @@ const Modal = ({ children, isActive, onClose }) => {
         .modal {
           position: relative;
 
-          width: fit-content;
-          min-width: 500px;
+          width: 100%;
+          max-width: 500px;
           background: var(--white-color);
           padding: 40px;
           color: var(--black-color);

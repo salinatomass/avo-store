@@ -27,13 +27,13 @@ const Header = () => {
         data: randomNum(0, 1) === 0 ? 'no' : 'yes',
         loading: false,
       })
-    }, 1000)
+    }, 500)
   }
 
   return (
     <header>
       <h1>
-        Avo <Avocado size="58px" /> Store
+        Avo <Avocado size="64px" /> Store
       </h1>
 
       <button type="button" className="btn btn-link" onClick={openModal}>
@@ -63,6 +63,7 @@ const Header = () => {
           align-items: center;
           justify-content: center;
           margin-bottom: 12px;
+          font-size: 52px;
         }
         .response {
           font-size: 98px;
@@ -75,6 +76,9 @@ const Header = () => {
         }
         .btn.btn-primary {
           width: 200px;
+        }
+        .btn.btn-link {
+          font-size: 20px;
         }
       `}</style>
     </header>
