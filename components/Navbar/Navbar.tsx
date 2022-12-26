@@ -1,18 +1,59 @@
-import Link from "next/link";
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+import Avocado from '@components/SVGIcons/Avocado'
+import Basket from '@components/SVGIcons/Basket'
 
 const Navbar = () => {
+  const { pathname } = useRouter()
+
   return (
     <nav>
-      <ul>
+      <ul className="container">
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className="link">
+            <div className={`link-container ${pathname === '/' && 'active'}`}>
+              <Avocado />
+              Avo Store
+            </div>
+          </Link>
         </li>
         <li>
-          <Link href="/about">About</Link>
+          <Link href="/cart">
+            <div className="link-container">
+              <Basket />
+              Canasta (0)
+            </div>
+          </Link>
         </li>
       </ul>
-    </nav>
-  );
-};
 
-export default Navbar;
+      <style jsx>{`
+        nav {
+          box-shadow: 8px 10px 34px rgba(255, 255, 255, 0.1);
+        }
+        ul {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .link-container {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          padding-block: 20px;
+          padding-inline: 18px;
+          font-size: 18px;
+        }
+        .link-container:hover {
+          background-color: var(--tertiary-color);
+        }
+        .link-container.active {
+          background-color: var(--tertiary-color);
+        }
+      `}</style>
+    </nav>
+  )
+}
+
+export default Navbar

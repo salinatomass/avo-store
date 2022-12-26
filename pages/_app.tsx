@@ -1,10 +1,9 @@
 import type { AppProps } from 'next/app'
 import Layout from '@components/Layout/Layout'
 
+import '../styles.css'
+
 export default function MyApp({ Component, pageProps }: AppProps) {
-  // Providers - Context/Providers, Theme, data
-  // Layout
-  // Additional props
   return (
     <Layout>
       <Component {...pageProps} />

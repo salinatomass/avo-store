@@ -1,4 +1,5 @@
 import Navbar from '@components/Navbar/Navbar'
+import Footer from '@components/Footer/Footer'
 
 type Props = {
   children: React.ReactNode
@@ -6,23 +7,22 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div className="container">
+    <>
       <Navbar />
-      {children}
-      <footer>This is the footer</footer>
+      <div className="container" style={{ paddingBlock: '44px' }}>
+        {children}
+      </div>
+      <Footer />
 
-      <style jsx>
+      <style jsx global>
         {`
           .container {
-            background: pink;
-          }
-
-          footer {
-            color: blue;
+            max-width: 700px;
+            margin: 0 auto;
           }
         `}
       </style>
-    </div>
+    </>
   )
 }
 
