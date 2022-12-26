@@ -30,3 +30,41 @@ a {
   text-decoration: none;
   color: var(--white-color);
 }
+
+.btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 16px;
+  padding: 18px 28px;
+}
+
+.btn.btn-primary {
+  background: var(--tertiary-color);
+  color: var(--white-color);
+}
+.btn.btn-primary:hover {
+  background: var(--secondary-color);
+}
+.btn.btn-primary:disabled {
+  background: rgba(129, 12, 168, 0.8);
+  cursor: default;
+}
+
+.btn.btn-secondary {
+  background: var(--light-color);
+  color: var(--secondary-color);
+}
+.btn.btn-secondary:hover {
+  background: var(--tertiary-color);
+  color: var(--white-color);
+}
+
+.btn.btn-link {
+  color: var(--tertiary-color);
+  padding: 0;
+}
+.btn.btn-link:hover {
+  text-decoration: underline;
+}

@@ -8,13 +8,13 @@ const Footer = () => (
   <footer className="container">
     <div className="item">
       <h3>Nosotros</h3>
-      <Link href="/about" passHref style={{ color: 'var(--tertiary-color)' }}>
+      <Link href="/about" passHref className="btn btn-link">
         Conoce más
       </Link>
     </div>
     <div className="item">
       <h3>Servicios</h3>
-      <Link href="/" passHref style={{ color: 'var(--tertiary-color)' }}>
+      <Link href="/" passHref className="btn btn-link">
         Todos los productos
       </Link>
     </div>
@@ -24,6 +24,7 @@ const Footer = () => (
         href="https://salinatomass.netlify.app"
         target="_blank"
         rel="noreferrer"
+        className="btn btn-link"
       >
         Tomas Salina | @salinatomass
       </a>
@@ -33,6 +34,7 @@ const Footer = () => (
             href="https://www.linkedin.com/in/salinatomass/"
             target="_blank"
             rel="noreferrer"
+            className="btn btn-link"
           >
             <LinkedinIcon />
             Linkedin
@@ -43,6 +45,7 @@ const Footer = () => (
             href="https://github.com/salinatomass/"
             target="_blank"
             rel="noreferrer"
+            className="btn btn-link"
           >
             <GithubIcon /> Github
           </a>
@@ -54,9 +57,6 @@ const Footer = () => (
       footer {
         display: flex;
         justify-content: space-between;
-      }
-      footer a {
-        color: var(--tertiary-color);
       }
       .item {
         display: flex;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Header from '@components/Header/Header'
 
 export default function HomePage() {
   const [productList, setProductList] = useState<TProduct[]>([])
@@ -12,7 +13,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Platzi Avo</h1>
+      <Header />
       {productList.map(product => (
         <p key={product.id}>{product.name}</p>
       ))}
