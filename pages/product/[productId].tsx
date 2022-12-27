@@ -1,38 +1,41 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { ProductSummary } from '@components/Product'
 
 const defaultProduct = {
-  id: "",
-  name: "",
-  image: "",
+  id: '',
+  name: '',
+  image: '',
   price: 0,
-  sku: "",
+  sku: '',
   attributes: {
-    description: "",
-    hardiness: "",
-    shape: "",
-    taste: "",
+    description: '',
+    hardiness: '',
+    shape: '',
+    taste: '',
   },
-};
+}
 
 const ProductItem = () => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const productId = router.query.productId;
-  const [product, setProduct] = useState<TProduct>(defaultProduct);
+  const productId = router.query.productId
+  const [product, setProduct] = useState<TProduct>(defaultProduct)
 
   useEffect(() => {
-    fetch(`/api/avo/${productId}`)
-      .then((res) => res.json())
-      .then((product) => setProduct(product))
-      .catch((err) => console.error(err));
-  }, [productId]);
+    if (productId) {
+      fetch(`/api/avo/${productId}`)
+        .then(res => res.json())
+        .then(product => setProduct(product))
+        .catch(err => console.error(err))
+    }
+  }, [productId])
 
   return (
     <div>
-      <h1>Esta es la página del producto: {product && product.name}</h1>
+      <ProductSummary product={product} />
     </div>
-  );
-};
+  )
+}
 
-export default ProductItem;
+export default ProductItem

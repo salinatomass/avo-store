@@ -14,7 +14,7 @@ const ProductCard = ({ product }: Props) => {
         <Image src={image} alt={name} width={333} height={333} />
         <div className="description">
           <h2>{name}</h2>
-          <p>{price}</p>
+          <p>${price}</p>
         </div>
       </Link>
 
