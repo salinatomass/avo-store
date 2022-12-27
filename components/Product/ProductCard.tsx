@@ -11,7 +11,18 @@ const ProductCard = ({ product }: Props) => {
   return (
     <article>
       <Link href={`/product/${id}`}>
-        <Image src={image} alt={name} width={333} height={333} />
+        <Image
+          src={image}
+          alt={name}
+          width={320}
+          height={320}
+          style={{
+            width: '100%',
+            maxWidth: '400px',
+            margin: '0 auto',
+            objectFit: 'cover',
+          }}
+        />
         <div className="description">
           <h2>{name}</h2>
           <p>${price}</p>

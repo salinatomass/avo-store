@@ -19,6 +19,12 @@ const Layout: React.FC<Props> = ({ children }) => {
           .container {
             max-width: 700px;
             margin: 0 auto;
+            padding: 0 20px;
+          }
+          @media screen and (min-width: 720px) {
+            .container {
+              padding: 0;
+            }
           }
         `}
       </style>

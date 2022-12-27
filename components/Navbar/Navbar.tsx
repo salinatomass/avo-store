@@ -29,6 +29,9 @@ const Navbar = () => {
       </ul>
 
       <style jsx>{`
+        .container {
+          padding: 0;
+        }
         nav {
           box-shadow: 8px 10px 34px rgba(255, 255, 255, 0.1);
         }

@@ -19,8 +19,6 @@ const ProductList = ({ products }: Props) => {
 
           margin-top: 60px;
           margin-bottom: 40px;
-          padding-left: 12px;
-          padding-right: 12px;
         }
         @media screen and (min-width: 600px) {
           .list {

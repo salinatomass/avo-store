@@ -48,9 +48,6 @@ const ProductSummary = ({ product }: Props) => {
       <ProductAttributes attributes={product.attributes} />
 
       <style jsx>{`
-        .wrapper {
-          padding: 0 20px;
-        }
         .summary {
           display: flex;
           align-items: center;
