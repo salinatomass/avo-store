@@ -4,7 +4,7 @@ interface TCartProduct extends TProduct {
 
 type TAppState = {
   cart: TCartProduct[]
-  products: TProduct[] | []
+  products: TProduct[] | any[]
   loadProducts: () => void
   addToCart: (product: TCartProduct) => void
   removeFromCart: (product: TCartProduct) => void
