@@ -12,7 +12,7 @@ const CartPage = () => {
       <hr />
 
       <section className="checkout">
-        <h4>Total price: ${getCartSubTotal()}</h4>
+        <h4>Total price: ${Math.round(getCartSubTotal())}</h4>
         <Link href="#" className="btn btn-secondary">
           Checkout
         </Link>
