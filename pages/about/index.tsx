@@ -71,9 +71,10 @@ const About = () => {
         }
         figcaption {
           font-size: 18px;
+          margin-top: 25px;
         }
         ol {
-          margin-top: 50px;
+          margin-top: 60px;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
           grid-gap: 4.5rem 1.2rem;

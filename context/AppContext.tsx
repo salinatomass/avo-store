@@ -37,13 +37,29 @@ export const AppProvider = ({ children }) => {
   const removeFromCart = (product: TCartProduct) =>
     dispatch({ type: TAppActionKind.REMOVE_FROM_CART, payload: product })
 
+  const getCartItemsCount = () =>
+    state.cart.reduce((accum, current) => accum + current.quantity, 0)
+
+  const getCartSubTotal = () =>
+    state.cart.reduce(
+      (accum, current) => accum + current.price * current.quantity,
+      0
+    )
+
   useEffect(() => {
     loadProducts()
   }, [loadProducts])
 
   return (
     <AppContext.Provider
-      value={{ ...state, loadProducts, addToCart, removeFromCart }}
+      value={{
+        ...state,
+        loadProducts,
+        addToCart,
+        removeFromCart,
+        getCartItemsCount,
+        getCartSubTotal,
+      }}
     >
       {children}
     </AppContext.Provider>

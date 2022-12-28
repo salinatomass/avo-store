@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useAppContext } from 'context/AppContext'
 
 import Avocado from '@components/SVGIcons/Avocado'
 import Basket from '@components/SVGIcons/Basket'
 
 const Navbar = () => {
   const { pathname } = useRouter()
+  const { getCartItemsCount } = useAppContext()
 
   return (
     <nav>
@@ -22,7 +24,7 @@ const Navbar = () => {
           <Link href="/cart">
             <div className="link-container">
               <Basket />
-              Canasta (0)
+              Canasta ({getCartItemsCount()})
             </div>
           </Link>
         </li>

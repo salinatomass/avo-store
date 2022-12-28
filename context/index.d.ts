@@ -3,11 +3,13 @@ interface TCartProduct extends TProduct {
 }
 
 type TAppState = {
-  cart: TCart[]
+  cart: TCartProduct[]
   products: TProduct[] | []
   loadProducts: () => void
   addToCart: (product: TCartProduct) => void
   removeFromCart: (product: TCartProduct) => void
+  getCartItemsCount: () => number
+  getCartSubTotal: () => number
 }
 
 type TAppAction = {

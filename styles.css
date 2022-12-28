@@ -54,11 +54,14 @@ a {
 }
 
 .btn.btn-secondary {
+  padding: 12px 20px;
   background: var(--light-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.1px;
 }
 .btn.btn-secondary:hover {
-  background: var(--tertiary-color);
+  background: var(--secondary-color);
   color: var(--white-color);
 }
 

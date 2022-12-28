@@ -1,21 +1,22 @@
-import { useRef } from 'react'
+import { useState } from 'react'
 import { useAppContext } from 'context/AppContext'
 
 const AddToCart = ({ product }) => {
   const { addToCart } = useAppContext()
-  const form = useRef(null)
+  const [quantity, setQuantity] = useState(1)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuantity(Number(e.target.value))
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    const formData = new FormData(form.current)
-    const quantity = Number(formData.get('quantity'))
 
     if (quantity >= 1 && quantity <= 100) addToCart({ ...product, quantity })
   }
 
   return (
-    <form ref={form} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <input
         type="number"
         name="quantity"
@@ -23,6 +24,8 @@ const AddToCart = ({ product }) => {
         min={1}
         max={100}
         step={1}
+        value={quantity}
+        onChange={handleChange}
         required
       />
       <button type="submit" className="btn btn-primary">
