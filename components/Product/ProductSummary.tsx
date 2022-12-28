@@ -1,20 +1,12 @@
-import { useRef } from 'react'
 import Image from 'next/image'
 import ProductAttributes from './ProductAttributes'
+import AddToCart from './AddToCart'
 
 interface Props {
   product: TProduct
 }
 
 const ProductSummary = ({ product }: Props) => {
-  const form = useRef(null)
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(form.current)
-    console.log(formData.get('quantity'))
-  }
-
   return (
     <main className="wrapper">
       <div className="summary">
@@ -23,25 +15,13 @@ const ProductSummary = ({ product }: Props) => {
           alt={product.name}
           width={300}
           height={300}
+          priority
         />
         <div className="description">
           <h2>{product.name}</h2>
           <p>${product.price}</p>
           <p className="sku">SKU: {product.sku}</p>
-          <form ref={form} onSubmit={handleSubmit}>
-            <input
-              type="number"
-              name="quantity"
-              placeholder="Quantity"
-              min={1}
-              max={100}
-              step={1}
-              required
-            />
-            <button type="submit" className="btn btn-primary">
-              Add to cart
-            </button>
-          </form>
+          <AddToCart product={product} />
         </div>
       </div>
 
@@ -72,20 +52,6 @@ const ProductSummary = ({ product }: Props) => {
           padding: 4px 8px;
           background-color: rgba(255, 255, 255, 0.2);
           border-radius: 2px;
-        }
-        form {
-          display: flex;
-          margin-top: 20px;
-        }
-        input {
-          width: 180px;
-          height: contain;
-          outline: none;
-          padding: 8px 16px;
-        }
-        button {
-          border-radius: 0;
-          padding: 14px 18px;
         }
         @media screen and (min-width: 600px) {
           .summary {

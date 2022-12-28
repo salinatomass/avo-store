@@ -9,22 +9,26 @@ const ProductAttributes = ({ attributes }: Props) => {
       <p>{attributes.description}</p>
       <hr />
       <table>
-        <tr>
-          <th>Attributes</th>
-          <th></th>
-        </tr>
-        <tr>
-          <td>Shape</td>
-          <td>{attributes.shape}</td>
-        </tr>
-        <tr>
-          <td>Hardiness</td>
-          <td>{attributes.hardiness}</td>
-        </tr>
-        <tr>
-          <td>Taste</td>
-          <td>{attributes.taste}</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Attributes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shape</td>
+            <td>{attributes.shape}</td>
+          </tr>
+          <tr>
+            <td>Hardiness</td>
+            <td>{attributes.hardiness}</td>
+          </tr>
+          <tr>
+            <td>Taste</td>
+            <td>{attributes.taste}</td>
+          </tr>
+        </tbody>
       </table>
 
       <style jsx>{`

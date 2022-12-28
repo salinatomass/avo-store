@@ -6,8 +6,8 @@ type TAppState = {
   cart: TCart[]
   products: TProduct[] | []
   loadProducts: () => void
-  addToCart: (product: TProduct) => void
-  removeFromCart: (product: TProduct) => void
+  addToCart: (product: TCartProduct) => void
+  removeFromCart: (product: TCartProduct) => void
 }
 
 type TAppAction = {
