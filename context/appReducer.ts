@@ -1,4 +1,8 @@
-import { Reducer } from 'react'
+export enum TAppActionKind {
+  LOAD_PRODUCTS = 'LOAD_PRODUCTS',
+  ADD_TO_CART = 'ADD_TO_CART',
+  REMOVE_FROM_CART = 'REMOVE_FROM_CART',
+}
 
 export const initialState: TAppState = {
   cart: [],

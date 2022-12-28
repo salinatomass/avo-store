@@ -1,6 +1,13 @@
-import { createContext, useContext, useReducer } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useCallback,
+} from 'react'
+import { useQuery } from 'react-query'
 
-import { appReducer, initialState } from './appReducer'
+import { appReducer, initialState, TAppActionKind } from './appReducer'
 
 const AppContext = createContext(initialState)
 
@@ -12,18 +19,27 @@ export const useAppContext = () => {
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState)
 
-  const products = []
+  const getProducts = async () => {
+    const res = await fetch('/api/avo')
+    return await res.json()
+  }
 
-  const loadProducts = () =>
-    dispatch({ type: TAppActionKind.LOAD_PRODUCTS, payload: products })
+  const { data } = useQuery('products', getProducts)
 
-  const addToCart = (product: TProduct) => {
+  const loadProducts = useCallback(() => {
+    if (data)
+      dispatch({ type: TAppActionKind.LOAD_PRODUCTS, payload: data.data })
+  }, [data])
+
+  const addToCart = (product: TCartProduct) =>
     dispatch({ type: TAppActionKind.ADD_TO_CART, payload: product })
-  }
 
-  const removeFromCart = (product: TProduct) => {
+  const removeFromCart = (product: TCartProduct) =>
     dispatch({ type: TAppActionKind.REMOVE_FROM_CART, payload: product })
-  }
+
+  useEffect(() => {
+    loadProducts()
+  }, [loadProducts])
 
   return (
     <AppContext.Provider
