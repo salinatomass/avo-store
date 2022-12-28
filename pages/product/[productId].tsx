@@ -1,28 +1,15 @@
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useAppContext } from 'context/AppContext'
 import { ProductSummary } from '@components/Product'
 
 const ProductItem = () => {
   const router = useRouter()
+  const { products } = useAppContext()
 
   const productId = router.query.productId
-  const [product, setProduct] = useState<TProduct | null>(null)
+  const product = products.find(prod => prod.id === productId)
 
-  useEffect(() => {
-    if (productId) {
-      fetch(`/api/avo/${productId}`)
-        .then(res => res.json())
-        .then(product => {
-          console.log(product)
-          setProduct(product)
-        })
-        .catch(err => console.error(err))
-    }
-  }, [productId])
-
-  return (
-    <div>{product === null ? null : <ProductSummary product={product} />}</div>
-  )
+  return <div>{product && <ProductSummary product={product} />}</div>
 }
 
 export default ProductItem
