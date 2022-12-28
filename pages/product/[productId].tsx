@@ -7,7 +7,7 @@ const ProductItem = () => {
   const { products } = useAppContext()
 
   const productId = router.query.productId
-  const product = products.find(prod => prod.id === productId)
+  const product = products.find(prod => prod?.id === productId)
 
   return <div>{product && <ProductSummary product={product} />}</div>
 }

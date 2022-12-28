@@ -10,6 +10,8 @@ export const initialState: TAppState = {
   loadProducts: () => {},
   addToCart: () => {},
   removeFromCart: () => {},
+  getCartItemsCount: () => 0,
+  getCartSubTotal: () => 0,
 }
 
 export const appReducer = (state: TAppState, action: TAppAction): TAppState => {
@@ -23,7 +25,7 @@ export const appReducer = (state: TAppState, action: TAppAction): TAppState => {
       }
     case TAppActionKind.ADD_TO_CART:
       const newCart: TCartProduct[] = state.cart.find(
-        prod => prod.id === payload.id
+        prod => prod?.id === payload.id
       )
         ? state.cart.map(prod =>
             prod.id === payload.id

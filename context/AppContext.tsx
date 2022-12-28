@@ -6,6 +6,7 @@ import {
   useCallback,
 } from 'react'
 import { useQuery } from 'react-query'
+import toast from 'react-hot-toast'
 
 import { appReducer, initialState, TAppActionKind } from './appReducer'
 
@@ -31,8 +32,10 @@ export const AppProvider = ({ children }) => {
       dispatch({ type: TAppActionKind.LOAD_PRODUCTS, payload: data.data })
   }, [data])
 
-  const addToCart = (product: TCartProduct) =>
+  const addToCart = (product: TCartProduct) => {
     dispatch({ type: TAppActionKind.ADD_TO_CART, payload: product })
+    toast.success('Product added to your cart')
+  }
 
   const removeFromCart = (product: TCartProduct) =>
     dispatch({ type: TAppActionKind.REMOVE_FROM_CART, payload: product })

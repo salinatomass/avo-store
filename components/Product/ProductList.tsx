@@ -16,6 +16,7 @@ const ProductList = ({ products }: Props) => {
           display: grid;
           grid-template-columns: 1fr;
           justify-items: center;
+          gap: 40px;
 
           margin-top: 60px;
           margin-bottom: 40px;
@@ -23,7 +24,6 @@ const ProductList = ({ products }: Props) => {
         @media screen and (min-width: 600px) {
           .list {
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
             padding-left: 0;
             padding-right: 0;
           }
