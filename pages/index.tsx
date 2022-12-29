@@ -2,7 +2,7 @@ import Header from '@components/Header/Header'
 import { ProductList } from '@components/Product'
 
 export const getServerSideProps = async () => {
-  const response = await fetch(process.env.API_URL)
+  const response = await fetch(`${process.env.API_HOST}/api/avo`)
   const { data: productList }: TAPIAvoResponse = await response.json()
 
   return {
