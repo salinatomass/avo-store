@@ -1,9 +1,8 @@
 import Header from '@components/Header/Header'
 import { ProductList } from '@components/Product'
-import { useAppContext } from 'context/AppContext'
 
 export const getServerSideProps = async () => {
-  const response = await fetch('http://localhost:3000/api/avo')
+  const response = await fetch(process.env.API_URL)
   const { data: productList }: TAPIAvoResponse = await response.json()
 
   return {
