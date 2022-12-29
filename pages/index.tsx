@@ -1,26 +1,26 @@
 import Header from '@components/Header/Header'
 import { ProductList } from '@components/Product'
+import { getAllProducts } from 'api/avoApi'
 
-export const getServerSideProps = async () => {
-  const response = await fetch(`${process.env.API_HOST}/api/avo`)
-  const { data: productList }: TAPIAvoResponse = await response.json()
+export const getStaticProps = async () => {
+  const products = await getAllProducts()
 
   return {
     props: {
-      productList,
+      products,
     },
   }
 }
 
 interface Props {
-  productList: TProduct[]
+  products: TProduct[]
 }
 
-export default function HomePage({ productList }: Props) {
+export default function HomePage({ products }: Props) {
   return (
     <div className="wrapper">
       <Header />
-      <ProductList products={productList} />
+      <ProductList products={products} />
     </div>
   )
 }

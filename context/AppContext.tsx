@@ -49,10 +49,6 @@ export const AppProvider = ({ children }) => {
       0
     )
 
-  useEffect(() => {
-    loadProducts()
-  }, [loadProducts])
-
   return (
     <AppContext.Provider
       value={{
