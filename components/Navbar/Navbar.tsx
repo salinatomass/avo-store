@@ -24,7 +24,7 @@ const Navbar = () => {
           <Link href="/cart">
             <div className="link-container">
               <Basket />
-              Canasta ({getCartItemsCount()})
+              Cart ({getCartItemsCount()})
             </div>
           </Link>
         </li>

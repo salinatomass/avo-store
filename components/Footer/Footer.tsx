@@ -7,19 +7,19 @@ import {
 const Footer = () => (
   <footer className="container">
     <div className="item">
-      <h3>Nosotros</h3>
+      <h3>About us</h3>
       <Link href="/about" passHref className="btn btn-link">
-        Conoce más
+        Know more
       </Link>
     </div>
     <div className="item">
-      <h3>Servicios</h3>
+      <h3>Services</h3>
       <Link href="/" passHref className="btn btn-link">
-        Todos los productos
+        All products
       </Link>
     </div>
     <div className="item">
-      <h3>Hecho por</h3>
+      <h3>Made by</h3>
       <a
         href="https://salinatomass.netlify.app"
         target="_blank"

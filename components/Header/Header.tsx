@@ -37,7 +37,7 @@ const Header = () => {
       </h1>
 
       <button type="button" className="btn btn-link" onClick={openModal}>
-        ¿Debería comer un avo hoy?
+        Should I eat an avo today?
       </button>
 
       <Modal isActive={modal.isActive} onClose={closeModal}>
@@ -50,7 +50,7 @@ const Header = () => {
           onClick={loadModal}
           disabled={modal.loading}
         >
-          {modal.loading ? 'Loading...' : 'Intentar de nuevo'}
+          {modal.loading ? 'Loading...' : 'Try again'}
         </button>
       </Modal>
 

@@ -1,6 +1,7 @@
+import Head from 'next/head'
+import { Toaster } from 'react-hot-toast'
 import Navbar from '@components/Navbar/Navbar'
 import Footer from '@components/Footer/Footer'
-import { Toaster } from 'react-hot-toast'
 
 type Props = {
   children: React.ReactNode
@@ -9,6 +10,10 @@ type Props = {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
+      <Head>
+        <title>Avo Store</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Navbar />
       <div className="container" style={{ paddingBlock: '44px' }}>
         {children}
