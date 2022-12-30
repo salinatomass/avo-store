@@ -5,3 +5,16 @@
 //     unoptimized: true,
 //   },
 // }
+
+// Proxy
+
+// module.exports = {
+//   async rewrites() {
+//     return [
+//       {
+//         source: '/avocado/:path*', // willcards
+//         destination: '/product/:path*',
+//       },
+//     ]
+//   },
+// }
