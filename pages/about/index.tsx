@@ -45,6 +45,7 @@ const About = ({ avoFacts }) => {
           width={450}
           height={340}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          priority
         />
         <figcaption>
           Originally from{' '}
