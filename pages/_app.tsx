@@ -5,6 +5,10 @@ import { AppProvider } from 'context/AppContext'
 import '../styles.css'
 import Layout from '@components/Layout/Layout'
 
+export const reportWebVitals = metric => {
+  console.log(metric)
+}
+
 const queryClient = new QueryClient()
 
 export default function MyApp({ Component, pageProps }: AppProps) {
