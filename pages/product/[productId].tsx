@@ -1,10 +1,11 @@
 import { GetStaticProps } from 'next'
 import { ProductSummary } from '@components/Product'
-import { getAllProducts, getProductById } from 'api/avoApi'
 
 export const getStaticPaths = async () => {
-  const productList = await getAllProducts()
-  const paths = productList.map(avo => ({ params: { productId: avo.id } }))
+  const response = await fetch(`${process.env.API_HOST}/api/avo`)
+  const { data: products }: TAPIAvoResponse = await response.json()
+
+  const paths = products.map(avo => ({ params: { productId: avo.id } }))
 
   return {
     paths,
@@ -14,7 +15,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async context => {
   const id = context.params?.productId as string
-  const product = await getProductById(id)
+
+  const response = await fetch(`${process.env.API_HOST}/api/avo/${id}`)
+  const product: TProduct = await response.json()
 
   return {
     props: {

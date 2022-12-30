@@ -1,9 +1,9 @@
 import Header from '@components/Header/Header'
 import { ProductList } from '@components/Product'
-import { getAllProducts } from 'api/avoApi'
 
 export const getStaticProps = async () => {
-  const products = await getAllProducts()
+  const response = await fetch(`${process.env.API_HOST}/api/avo`)
+  const { data: products }: TAPIAvoResponse = await response.json()
 
   return {
     props: {

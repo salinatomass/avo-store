@@ -1,13 +1,10 @@
 export enum TAppActionKind {
-  LOAD_PRODUCTS = 'LOAD_PRODUCTS',
   ADD_TO_CART = 'ADD_TO_CART',
   REMOVE_FROM_CART = 'REMOVE_FROM_CART',
 }
 
 export const initialState: TAppState = {
   cart: [],
-  products: [],
-  loadProducts: () => {},
   addToCart: () => {},
   removeFromCart: () => {},
   getCartItemsCount: () => 0,
@@ -18,11 +15,6 @@ export const appReducer = (state: TAppState, action: TAppAction): TAppState => {
   const { type, payload } = action
 
   switch (type) {
-    case TAppActionKind.LOAD_PRODUCTS:
-      return {
-        ...state,
-        products: payload,
-      }
     case TAppActionKind.ADD_TO_CART:
       const newCart: TCartProduct[] = state.cart.find(
         prod => prod?.id === payload.id

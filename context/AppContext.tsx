@@ -1,11 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useCallback,
-} from 'react'
-import { useQuery } from 'react-query'
+import { createContext, useContext, useReducer } from 'react'
 import toast from 'react-hot-toast'
 
 import { appReducer, initialState, TAppActionKind } from './appReducer'
@@ -19,18 +12,6 @@ export const useAppContext = () => {
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState)
-
-  const getProducts = async () => {
-    const res = await fetch('/api/avo')
-    return await res.json()
-  }
-
-  const { data } = useQuery('products', getProducts)
-
-  const loadProducts = useCallback(() => {
-    if (data)
-      dispatch({ type: TAppActionKind.LOAD_PRODUCTS, payload: data.data })
-  }, [data])
 
   const addToCart = (product: TCartProduct) => {
     dispatch({ type: TAppActionKind.ADD_TO_CART, payload: product })
@@ -53,7 +34,6 @@ export const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
-        loadProducts,
         addToCart,
         removeFromCart,
         getCartItemsCount,
